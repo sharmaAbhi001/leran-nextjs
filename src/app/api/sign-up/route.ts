@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
     const existingUserVerifiedByUserName = await UserModel.findOne({
       userName,
-      isVarified: true,
+      isVerified: true,
     });
 
     if (existingUserVerifiedByUserName) {
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 
     if (existingUserByEmail) {
     
-        if(existingUserByEmail.isVarified)
+        if(existingUserByEmail.isVerified)
         {
             return Response.json({
                 success:false,
@@ -61,7 +61,7 @@ export async function POST(request: Request) {
         password: hasedPassword,
         verifyCode: verifyCode,
         verifyCodeExpiry: expiryDate,
-        isVarified: false,
+        isVerified: false,
         isAcceptingMessage: true,
         messages: [],
       });
