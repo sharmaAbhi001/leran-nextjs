@@ -10,6 +10,13 @@ export async function POST(request: Request) {
   try {
     const { userName, emailId, password } = await request.json();
 
+    // verified with zod schema 
+  
+
+
+
+
+
     const existingUserVerifiedByUserName = await UserModel.findOne({
       userName,
       isVerified: true,
